@@ -1,6 +1,15 @@
 @import url(./normalize.css);
 @import url(./reset.css);
 
+/* 숨김 콘텐츠 */
+.a11y-hidden{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0)
+}
+
 /* 기본 스타인 */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -12,12 +21,17 @@ a {
   text-decoration: none;
 }
 
+html {
+  font-size: 10px;
+}
+
 /* 본문 스타일 */
 body {
+  /* em, rem 단위를 사용해보기 */
+  font-size: 1.4rem;
   color: #212121;
-  background-color: #ccc;
+  background: #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #efefef 70%, #fff 100%);
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  font-weight: 900;
 }
 
 /* 레이아웃 */
@@ -30,39 +44,75 @@ body {
 .header {
   background-color: #fff;
   padding: 0 30px;
-  height: 15vh;
-  border-radius: 0 15px;
+  border-radius: 0 0 15px 15px;
   position: relative;
 }
 
 /* 로고 */
 .logo {
-  background-color: blue;
   position: absolute;
   top: 45px;
   left: 60px;
 }
 /* 텍스트 링크 모음 */
 .member {
-  background-color: aqua;
   text-align: right;
+  padding: 4px 0;
+  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px 만큼 이동하기 */
+  /* position: relative;
+  right: -10px; */
+  /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px 만큼 이동하기 */
+  transform: translateX(10px);
   
 }
 
 .member li {
-  background-color: pink;
   display: inline-block;
-  padding: 4px 0;
 }
 
 .member a {
-  background-color: coral;
   padding: 6px 10px;
   display: inherit;
+  text-transform: uppercase;
 }
 
 .divider {
   margin-right: 4px;
+}
+/* 메인 메뉴 */
+.mavigation {
+  padding-bottom: 80px;
+}
+
+.menu {
+  border-top:  #212121 2px solid;
+  background-color: seagreen;
+  background-image: linear-gradient(orange, orangered, orange);
+  border-radius: 0 0 5px 5px;
+  padding-left: 230px;
+  height: 47px;
+}
+
+.menu-item {
+  float: left;
+  border-left: 2px #fff solid;
+}
+
+.menu-button {
+  border: 0;
+  background: transparent;
+  padding: 0 23px;
+  line-height: 45px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+.sub-menu {
+  background-color: pink;
+  position: absolute;
+  display: none;
 }
 /* 비주얼 */
 .visual {
@@ -74,7 +124,6 @@ body {
   background-color: lightgreen;
   display: flow-root;
   padding: 0 15px;
-  height: 50vh;
 }
 
 .group{
@@ -102,6 +151,7 @@ body {
 /* 푸터 */
 .footer {
   background-color: gray;
+  background: #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #efefef 70%, #fff 100%);
 }
 .footer-inner {
   background: silver;
